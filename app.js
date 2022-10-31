@@ -9,7 +9,12 @@ const age =45;
 //Boolean
 const hasKids = true;
 
-console.log(typeof hasKids);
+
+
+//Null
+const car = null;
+
+console.log(typeof car);
 
 
 
