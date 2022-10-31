@@ -1,20 +1,42 @@
 //PRIMITIVE
 
-//String
+// String
 const fullName ='John Doe';
 
-//Number
+// Number
 const age =45;
 
-//Boolean
+// Boolean
 const hasKids = true;
 
-
-
-//Null
+// Null
 const car = null;
 
-console.log(typeof car);
+// Undefined
+
+let test
+
+// Symbol
+
+const sym = Symbol();
+
+//REFERENCE TYPES - Objects
+
+//Array 
+
+const hobbies = ['movies', 'music'];
+
+//Object literal
+
+const address = {
+  city: 'Boston',
+  state: 'MA'
+}
+
+const today = new Date();
+
+console.log(today);
+console.log(typeof today);
 
 
 
