@@ -48,6 +48,19 @@ val = firstName.lastIndexOf('y');
 
 val = firstName.charAt('2');
 
+// Get last char
+
+val = firstName.charAt(firstName.length - 1);
+
+// substring()
+
+val = firstName.substring(0, 3);
+
+// slice()
+
+val = firstName.slice(0, 3);
+val = firstName.slice(-2);
+
 
 console.log(val);
 
