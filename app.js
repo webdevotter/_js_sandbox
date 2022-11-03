@@ -1,83 +1,42 @@
 const firstName = 'Larry';
-const lastName = 'Rhodes';
 const age = 39;
-const str = 'Hello there my name is Larry';
-const tags = 'web design, web development, web deployment, programming, coding'
+const job = 'Mortgage Banker';
+const city = 'Cape Girardeau';
+const pets = ['Maggie', 'Brady', 'Bear'];
 
-let val;
+let html;
 
-val = firstName + lastName;
+// Without template strings (es5)
 
-// Concatenation 
+html = `<ul><li>Name: `+ firstName +` </li><li>Age: `+ age +`</li><li>Job: `+ job+`</li><li>City: `+ city +`</li></ul>`;
 
-val = firstName +' '+ lastName;
-
-// Append: add to, not replace
-
-val = 'Brad ';
-val += 'Traversy'
-
-val = 'Hell, my name is ' + firstName + ' and I am ' + age;
-
-// Escaping
-
-val = 'That\'s awesome, I can\'t wait.';
-val = "That's awesome, I can't wait."; // same as previous
-
-// Length
-
-val = firstName.length;
-val = lastName.length;
-
-// concat
-
-val = firstName.concat(' ', lastName); // same as line 11
-
-// Change case
-
-val = firstName.toUpperCase();
-val = lastName.toLowerCase();
+html =`<ul>` +
+      `<li>Name: `+ firstName +` </li>` +
+      `<li>Name: `+ age +` </li>` +
+      `<li>Name: `+ job +` </li>` +
+      `<li>Name: `+ city +` </li>`;
+      '</ul>'
 
 
-val = firstName[1];
-
-// indexOf()
-
-val = firstName.indexOf('L');
-val = firstName.lastIndexOf('y');
-
-//charAt()
-
-val = firstName.charAt('2');
-
-// Get last char
-
-val = firstName.charAt(firstName.length - 1);
-
-// substring()
-
-val = firstName.substring(0, 3);
-
-// slice()
-
-val = firstName.slice(0, 3);
-val = firstName.slice(-2);
-
-// split()
-
-val = str.split(' ');
-val = tags.split(',');
-
-//replace()
-
-val = str.replace('Larry', 'Jack');
-
-//includes()
-
-val = str.includes('Hello');
-val = str.includes('foo');
+// With template strings (es6)
 
 
-console.log(val);
+function hello() {
+  return 'Hello,' + ' ' + firstName + '!';
+}
+
+html = `
+<ul>
+  <li>Name: ${firstName} </li>
+  <li>Age:  ${age} </li>
+  <li>Job: ${job} </li>
+  <li>City: ${city} </li>
+  <li>Pets: ${pets.length}</li>
+  <li>Function: ${hello()} </li>
+  <li>Age Is: ${age > 30 ? 'Over 30' : 'Under 30'} </li>
+</ul>
+`
+
+document.body.innerHTML = html;
 
 
