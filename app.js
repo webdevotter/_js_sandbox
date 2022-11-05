@@ -38,8 +38,16 @@
 const cars = ['Ford', 'Chevy', 'Honda', 'Toyota'];
 
 
-for(let i = 0; i < cars.length; i++){
-  console.log(cars[i]);
-}
+// for(let i = 0; i < cars.length; i++){
+//   console.log(cars[i]);
+// }
+
+
+// For Each
+cars.forEach(function(car){
+  console.log(car);
+});
+
+
 
 
