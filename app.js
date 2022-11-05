@@ -4,7 +4,7 @@
 //   do something else
 // }
 
-const id = 100;
+const id = '100';
 
 // Equal To
 
@@ -25,6 +25,14 @@ if(id != 100){
 // Equal to Value and Type
 
 if(id === 100){
+  console.log('CORRECT');
+} else {
+  console.log('INCORRECT');
+}
+
+// Not equal to Value and Type
+
+if(id !== 100){
   console.log('CORRECT');
 } else {
   console.log('INCORRECT');
