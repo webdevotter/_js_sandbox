@@ -24,13 +24,22 @@
 
 // DO WHILE
 
-let i = 100;
+// let i = 100;
 
-do {
-  console.log('Number ' + i);
-  i++;
+// do {
+//   console.log('Number ' + i);
+//   i++;
+// }
+
+// while(i < 10);
+
+// Looping through arrays
+
+const cars = ['Ford', 'Chevy', 'Honda', 'Toyota'];
+
+
+for(let i = 0; i < cars.length; i++){
+  console.log(cars[i]);
 }
-
-while(i < 10);
 
 
