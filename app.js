@@ -1,28 +1,32 @@
-let val;
+// if(something) {
+//   do something
+// } else {
+//   do something else
+// }
 
-const today = new Date();
-let birthday = new Date('9-10-1981 11:25:00');
-birthday = new Date('September 10 1981');
-birthday = new Date('9/10/1981');
+const id = 100;
 
-val = today.getMonth();
-val = today.getDate();
-val - today.getDay();
-val = today.getFullYear();
-val = today.getHours();
-val = today.getMinutes();
-val = today.getSeconds();
-val = today.getMilliseconds();
-val = today.getTime();
+// Equal To
 
-birthday.setMonth(2);
-birthday.setDate(12);
-birthday.setFullYear(1985);
-birthday.setHours(3);
-birthday.setMinutes(30);
-birthday.setSeconds(25);
+if(id == 100){
+  console.log('CORRECT');
+} else {
+  console.log('INCORRECT');
+}
 
-console.log(birthday);
+// Not Equal to
 
+if(id != 100){
+  console.log('CORRECT');
+} else {
+  console.log('INCORRECT');
+}
 
+// Equal to Value and Type
+
+if(id === 100){
+  console.log('CORRECT');
+} else {
+  console.log('INCORRECT');
+}
 
