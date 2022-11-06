@@ -44,6 +44,18 @@ val = window.location.search;
 
 // History Object
 
+// window.history.go();
+
+// val = window.history.length;
+
+val = window.navigator;
+val = window.navigator.appName;
+val = window.navigator.appVersion;
+val = window.navigator.userAgent;
+val = window.navigator.platform;
+val = window.navigator.vendor;
+val = window.navigator.language;
+
 console.log(val);
 
 
