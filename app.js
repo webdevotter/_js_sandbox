@@ -1,36 +1,28 @@
-// Global Scope
-
-var a = 1; // confusion and security risks
-
-let b = 2;
-
-const c = 3;
-
-// function test(){
-//   var a = 4;
-//   let b = 5;
-//   const c = 6;
-//   console.log('Function Scope:', a, b,c);
-// }
-
-// test();
-
-// if(true){
-//   //Block scope
-//   var a = 4;
-
-//   let b = 5;
-
-//   const c = 6;
-//   console.log('If Scope:', a, b, c);
-// }
-
-for(let a = 0; a < 10; a++) {
-  console.log(`Loop: ${a}`);
+// Person constructor
+function Person(name, dob) {
+  this.name = name;
+  // this.age = age;
+  this.birthday = new Date(dob);
+  this.calculateAge = function(){
+    const diff = Date.now() - this.birthday.getTime();
+    const ageDate = new Date(diff);
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+  }
 }
 
-console.log('Global Scope:', a, b, c);
 
+
+
+
+
+
+// const brad = new Person('Brad', 39);
+// const john = new Person('John', 30);
+
+// console.log(brad.age);
+
+const brad = new Person('Brad', '9-10-1981');
+console.log(brad.calculateAge());
 
 
 
