@@ -1,27 +1,7 @@
-class Person {
-  constructor(firstName, lastName) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-  }
+document.querySelector('.get-jokes').addEventListener('click', getJokes);
 
-  greeting() {
-    return `Hello there ${this.firstName} ${this.lastName}`;
-  }
+function getJokes(e) {
+  console.log('get jokes');
+
+  e.preventDefault();
 }
-
-class Customer extends Person {
-  constructor(firstName, lastName, phone, membership) {
-    super(firstName, lastName);
-
-    this.phone = phone;
-    this.membership = membership;
-  }
-
-  static getMembershipCosts(){
-    return 500;
-  }
-}
-
-const john = new Customer('John', 'Smith', '555-555-5555', 'Standard');
-
-console.log(Customer.getMembershipCosts());
