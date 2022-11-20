@@ -1,22 +1,26 @@
-document.querySelector('.get-jokes').addEventListener('click', getJokes);
+const posts = [
+  {title: 'Post One', body: 'This is post one' },
+  {title: 'Post Two', body: 'This is post two' }
 
-function getJokes(e) {
-  
-  const xhr = new XMLHttpRequest();
+];
 
-  xhr.open('GET','https://api.chucknorris.io/jokes/random', true);
+function createPost() {
+  setTimeout(function() {
+    posts.push(post);
+  }, 2000);
 
-  xhr.onload = function() {
-    if(this.status === 200) {
-      const response = JSON.parse(this.responseText);
-
-      const output = `<p>${response.value}</p>`
-      
-      document.querySelector('.get-jokes').innerHTML = output;
-    }
-  }
-
-  xhr.send();
-
-  e.preventDefault();
 }
+
+function getPosts() {
+  setTimeout(function(){
+    let output = '';
+    posts.forEach(function(){
+      output += `<li>${post.title}</li>`;
+    });
+  }, 1000);
+  document.body.innerHTML = output;
+}
+
+createPost({title: 'Post Three', body: 'This is post three'});
+
+getPosts();
