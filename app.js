@@ -1,46 +1,18 @@
-// const sayHello = () => {
+async function myFunc() {
 
-//   const action = document.getElementById('action');
-//   action.innerHTML = 'Hello';
-// }
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => resolve('Hello'), 1000);
+  });
 
-// One line function doesn't need braces
+  const error = true;
+  if(error) {
+    const res = await promise; // Wait until promise is resolved
+    return res;
+  } else {
+    await Promise.reject(new Error('Something went wrong'));
+  }   
+}
 
-// const action = document.getElementById('action');
-// const sayHello = () => action.innerHTML = 'Hello';
-
-
-// Another way
-// const sayHello = () => 'Hello';
-// document.getElementById('action').innerHTML = sayHello();
-
-// Return Object 
-// const sayHello = () => ({msg: 'Hello'});
-// document.getElementById('action').innerHTML = sayHello().msg;
-
-// Single param does not need parenthesis
-// const sayHello = firstName => `Hello, ${firstName}.`;
-
-// document.getElementById('action').innerHTML = sayHello('Brad');
-
-// Multiple param does need parenthesis
-// const sayHello = (firstName , lastName) => `Hello, ${firstName} ${lastName}.`;
-
-// document.getElementById('action').innerHTML = sayHello('Brad', 'Smith');
-
-const users = ['Nathan', 'John', 'William'];
-
-// const nameLengths = users.map(function(name){
-//   return name.length;
-// });
-
-// Shorter
-// const nameLengths = users.map((firstName) => {
-//   return firstName.length; 
-// });
-
-//Shortest
-const nameLengths = users.map(firstName => firstName.length);
-
-
-document.getElementById('action').innerHTML = nameLengths;
+myFunc()
+.then(res => console.log(res))
+.catch(err => console.log(err));
