@@ -27,10 +27,25 @@ re = /Hel{2,4}o/i; // Must occur between {m,n} times
 re = /Hel{2,}o/i; // Must occur at least {m} times
 
 // Parentheses () - Grouping
-re = /^([0-9]x){3}$/;
+re = /^([0-9]x){3}$/; 
+
+// Shorthand Character Classes
+re = /\w/; // Word Character - alphanumeric or _
+re = /\w+/; // + equals one or more 
+re = /\W/; // non-word characters 
+re = /\d/; // will match any digit
+re = /\d+/; // will match any digit 0 or more times
+re = /\D/; // will match any non-digit
+re = /\s/; // will match whitespace character
+re = /\S/; // will match NON-whitespace character
+re = /Hell\b/i; // Word boundary
+
+// Assertions
+re = /x(?=y)/; //Match x only if followed by y
+re = /x(?!y)/; //Match x only if followed by y
 
 // String to match
-const str = '3x3x3x';
+const str = 'faljfasuxu';
 
 // Log Results
 const result = re.exec(str);
