@@ -1,56 +1,31 @@
-// // Iterator Exampler
+// Create a symbol
+// const sym1 = Symbol();
+// const sym2 = Symbol('sym2');
 
-// function nameIterator(names) {
-//   let nextIndex = 0;
+// console.log(typeof sym2);
 
-//   return {
-//     next: function() {
-//       return nextIndex < names.length ?
-//       { value: names[nextIndex++], done: false } :
-//       { done: true }
-//     }
-//   }
+// console.log(Symbol() === Symbol()); //can never be the same
+// console.log(`'Hello ${sym1.toString()}'`);
+
+// Unique Object Keys
+const KEY1 = Symbol();
+const KEY2 = Symbol('sym2');
+
+const myObj = {};
+
+myObj[KEY1] = 'Prop1';
+myObj[KEY2] = 'Prop2';
+myObj.key3 = 'Prop3';
+myObj.key4 = 'Prop4';
+
+console.log(myObj[KEY1]);
+console.log(myObj[KEY2]);
+
+// Symbols are not enumerable in for...in
+// for(let i in myObj) {
+//   console.log(`${i}: ${myObj[i]}`);
 // }
 
-// // Create an array of names
-// const namesArr = ['Jack', 'Jill', 'John'];
-
-// // Initialize iterator and pass in the names array
-// const names = nameIterator(namesArr);
-
-// console.log(names.next());
-// console.log(names.next());
-// console.log(names.next());
-// console.log(names.next());
-
-//Generator Example
-
-// function* sayNames() {
-//   yield 'Jack';
-//   yield 'Jill';
-//   yield 'John';
-// }
-
-// const name = sayNames();
-
-// console.log(name.next().value);
-// console.log(name.next().value);
-// console.log(name.next().value);
-// console.log(name.next().value);
-
-// ID Creator
-function* createIds() {
-  let index = 0;
-
-  while(true) {
-    yield index++;
-  }
-}
-
-const gen = createIds();
-
-console.log(gen.next().value);
-console.log(gen.next().value);
-console.log(gen.next().value);
-console.log(gen.next().value);
-
+// Symbols are ignored by JSON.stringify
+console.log(JSON.stringify({key: 'prop'}));
+console.log(JSON.stringify({[Symbol('sym1')]: 'prop'}));
