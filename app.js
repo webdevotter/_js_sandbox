@@ -1,22 +1,50 @@
-const Singleton = (function() {
-  let instance;
+function MemberFactory() {
+  this.createMember = function(name, type) {
+    let member;
 
-  function createInstance() {
-    const object = new Object('Object instance!!!');
-    return object;
-  }
-
-  return {
-    getInstance: function() {
-      if(!instance){
-        instance = createInstance();
-      }
-      return instance;
+    if(type === 'simple') {
+      member = new SimpleMembership(name);
+    } else if(type == 'standard') {
+      member = new StandardMembership(name);
+    } else if (type === 'super') {
+      member = new SuperMembership(name);
     }
+
+    member.type = type;
+
+    member.define = function() {
+      console.log(`${this.name} (${this.type}): ${this.cost}`)
+    }
+
+    return member;
   }
-})();
+}
 
-const instanceA = Singleton.getInstance();
-const instanceB = Singleton.getInstance();
+const SimpleMembership = function(name) {
+  this.name = name;
+  this.cost = '$5';
+}
 
-console.log(instanceA === instanceB);
+const StandardMembership = function(name) {
+  this.name = name;
+  this.cost = '$15';
+}
+
+const SuperMembership = function(name) {
+  this.name = name;
+  this.cost = '$25';
+}
+
+const members = [];
+const factory = new MemberFactory();
+
+members.push(factory.createMember('John', 'simple'));
+members.push(factory.createMember('Chris', 'super'));
+members.push(factory.createMember('Beth', 'standard'));
+members.push(factory.createMember('Edith', 'simple'));
+
+console.log(members);
+
+members.forEach(function(member){
+  member.define();
+});
