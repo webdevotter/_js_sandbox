@@ -7,7 +7,7 @@ User.prototype = {
   send: function(message, to) {
     this.chatroom.send(message, this, to);
   },
-  receive: function(message, from) {
+  recieve: function(message, from) {
     console.log(`${from.name} to ${this.name}: ${message}`);
   }
 }
@@ -17,18 +17,18 @@ const Chatroom = function() {
 
   return {
     register: function(user) {
-        user[user.name] = user;
-        user.chatroom = this;
+      users[user.name] = user;
+      user.chatroom = this;
     },
     send: function(message, from, to) {
-      if(to){
+      if(to) {
         // Single user message
-        to.receive(message, from);
+        to.recieve(message, from);
       } else {
         // Mass message
         for(key in users) {
           if(users[key] !== from) {
-            users[key].receive(message, from);
+            users[key].recieve(message, from);
           }
         }
       }
@@ -47,5 +47,5 @@ chatroom.register(jeff);
 chatroom.register(sara);
 
 brad.send('Hello Jeff', jeff);
-sara.send('Hello Brad, you are the best developer ever!', brad);
-jeff.send('Hello everyone');
+sara.send('Hello Brad, you are the best dev ever!', brad);
+jeff.send('Hello Everyone!!!!');
