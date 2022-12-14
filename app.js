@@ -19,6 +19,33 @@ const Chatroom = function() {
     register: function(user) {
         user[user.name] = user;
         user.chatroom = this;
+    },
+    send: function(message, from, to) {
+      if(to){
+        // Single user message
+        to.receive(message, from);
+      } else {
+        // Mass message
+        for(key in users) {
+          if(users[key] !== from) {
+            users[key].receive(message, from);
+          }
+        }
+      }
     }
   }
 }
+
+const brad = new User('Brad');
+const jeff = new User('Jeff');
+const sara = new User('Sara');
+
+const chatroom = new Chatroom();
+
+chatroom.register(brad);
+chatroom.register(jeff);
+chatroom.register(sara);
+
+brad.send('Hello Jeff', jeff);
+sara.send('Hello Brad, you are the best developer ever!', brad);
+jeff.send('Hello everyone');
